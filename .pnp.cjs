@@ -37,6 +37,7 @@ const RAW_RUNTIME_STATE =
           ["@react-native/eslint-config", "virtual:2aa26f8c7ca1c67aa4abde7527bd175d91717cbc92fe464837b4d1409d1084c2b7e0350b7bc0208494274a6406bd3b5f0cbedcbee286419f71c726235c94868e#npm:0.79.3"],\
           ["@react-native/metro-config", "npm:0.79.3"],\
           ["@react-native/typescript-config", "npm:0.79.3"],\
+          ["@shopify/restyle", "virtual:2aa26f8c7ca1c67aa4abde7527bd175d91717cbc92fe464837b4d1409d1084c2b7e0350b7bc0208494274a6406bd3b5f0cbedcbee286419f71c726235c94868e#npm:2.4.5"],\
           ["@types/jest", "npm:29.5.14"],\
           ["@types/react", "npm:19.1.7"],\
           ["@types/react-test-renderer", "npm:19.1.0"],\
@@ -4181,6 +4182,32 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["@shopify/restyle", [\
+      ["npm:2.4.5", {\
+        "packageLocation": "../../../Users/mguib/AppData/Local/Yarn/Berry/cache/@shopify-restyle-npm-2.4.5-1fd289fc59-10c0.zip/node_modules/@shopify/restyle/",\
+        "packageDependencies": [\
+          ["@shopify/restyle", "npm:2.4.5"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:2aa26f8c7ca1c67aa4abde7527bd175d91717cbc92fe464837b4d1409d1084c2b7e0350b7bc0208494274a6406bd3b5f0cbedcbee286419f71c726235c94868e#npm:2.4.5", {\
+        "packageLocation": "./.yarn/__virtual__/@shopify-restyle-virtual-6ee900c1a5/4/Users/mguib/AppData/Local/Yarn/Berry/cache/@shopify-restyle-npm-2.4.5-1fd289fc59-10c0.zip/node_modules/@shopify/restyle/",\
+        "packageDependencies": [\
+          ["@shopify/restyle", "virtual:2aa26f8c7ca1c67aa4abde7527bd175d91717cbc92fe464837b4d1409d1084c2b7e0350b7bc0208494274a6406bd3b5f0cbedcbee286419f71c726235c94868e#npm:2.4.5"],\
+          ["@types/react", "npm:19.1.7"],\
+          ["@types/react-native", null],\
+          ["react", "npm:19.0.0"],\
+          ["react-native", "virtual:2aa26f8c7ca1c67aa4abde7527bd175d91717cbc92fe464837b4d1409d1084c2b7e0350b7bc0208494274a6406bd3b5f0cbedcbee286419f71c726235c94868e#npm:0.79.3"]\
+        ],\
+        "packagePeers": [\
+          "@types/react-native",\
+          "@types/react",\
+          "react-native",\
+          "react"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["@sideway/address", [\
       ["npm:4.1.5", {\
         "packageLocation": "../../../Users/mguib/AppData/Local/Yarn/Berry/cache/@sideway-address-npm-4.1.5-a3852745c8-10c0.zip/node_modules/@sideway/address/",\
@@ -4717,6 +4744,7 @@ const RAW_RUNTIME_STATE =
           ["@react-native/eslint-config", "virtual:2aa26f8c7ca1c67aa4abde7527bd175d91717cbc92fe464837b4d1409d1084c2b7e0350b7bc0208494274a6406bd3b5f0cbedcbee286419f71c726235c94868e#npm:0.79.3"],\
           ["@react-native/metro-config", "npm:0.79.3"],\
           ["@react-native/typescript-config", "npm:0.79.3"],\
+          ["@shopify/restyle", "virtual:2aa26f8c7ca1c67aa4abde7527bd175d91717cbc92fe464837b4d1409d1084c2b7e0350b7bc0208494274a6406bd3b5f0cbedcbee286419f71c726235c94868e#npm:2.4.5"],\
           ["@types/jest", "npm:29.5.14"],\
           ["@types/react", "npm:19.1.7"],\
           ["@types/react-test-renderer", "npm:19.1.0"],\
@@ -7075,17 +7103,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["fdir", [\
-      ["npm:6.4.5", {\
-        "packageLocation": "../../../Users/mguib/AppData/Local/Yarn/Berry/cache/fdir-npm-6.4.5-8cb4a0e5d8-10c0.zip/node_modules/fdir/",\
+      ["npm:6.4.6", {\
+        "packageLocation": "../../../Users/mguib/AppData/Local/Yarn/Berry/cache/fdir-npm-6.4.6-52922d4c25-10c0.zip/node_modules/fdir/",\
         "packageDependencies": [\
-          ["fdir", "npm:6.4.5"]\
+          ["fdir", "npm:6.4.6"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:d4e4bcf80e67f9de0540c123c7c4882e34dce6a8ba807a0a834f267f9132ee6bd264e69a49c6203aa89877ed3a5a5d633bfa002384881be452cc3a2d2fbcce0b#npm:6.4.5", {\
-        "packageLocation": "./.yarn/__virtual__/fdir-virtual-a57ea03739/4/Users/mguib/AppData/Local/Yarn/Berry/cache/fdir-npm-6.4.5-8cb4a0e5d8-10c0.zip/node_modules/fdir/",\
+      ["virtual:d4e4bcf80e67f9de0540c123c7c4882e34dce6a8ba807a0a834f267f9132ee6bd264e69a49c6203aa89877ed3a5a5d633bfa002384881be452cc3a2d2fbcce0b#npm:6.4.6", {\
+        "packageLocation": "./.yarn/__virtual__/fdir-virtual-895faf82c5/4/Users/mguib/AppData/Local/Yarn/Berry/cache/fdir-npm-6.4.6-52922d4c25-10c0.zip/node_modules/fdir/",\
         "packageDependencies": [\
-          ["fdir", "virtual:d4e4bcf80e67f9de0540c123c7c4882e34dce6a8ba807a0a834f267f9132ee6bd264e69a49c6203aa89877ed3a5a5d633bfa002384881be452cc3a2d2fbcce0b#npm:6.4.5"],\
+          ["fdir", "virtual:d4e4bcf80e67f9de0540c123c7c4882e34dce6a8ba807a0a834f267f9132ee6bd264e69a49c6203aa89877ed3a5a5d633bfa002384881be452cc3a2d2fbcce0b#npm:6.4.6"],\
           ["@types/picomatch", null],\
           ["picomatch", "npm:4.0.2"]\
         ],\
@@ -11052,10 +11080,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["socks", [\
-      ["npm:2.8.4", {\
-        "packageLocation": "../../../Users/mguib/AppData/Local/Yarn/Berry/cache/socks-npm-2.8.4-8194b86bd0-10c0.zip/node_modules/socks/",\
+      ["npm:2.8.5", {\
+        "packageLocation": "../../../Users/mguib/AppData/Local/Yarn/Berry/cache/socks-npm-2.8.5-d96a42ad79-10c0.zip/node_modules/socks/",\
         "packageDependencies": [\
-          ["socks", "npm:2.8.4"],\
+          ["socks", "npm:2.8.5"],\
           ["ip-address", "npm:9.0.5"],\
           ["smart-buffer", "npm:4.2.0"]\
         ],\
@@ -11069,7 +11097,7 @@ const RAW_RUNTIME_STATE =
           ["socks-proxy-agent", "npm:8.0.5"],\
           ["agent-base", "npm:7.1.3"],\
           ["debug", "virtual:fe457ebf1b2121fb4ef946d51b2e7f42978256d58f57e21a898cf244fe6b594c587b705308bc9979f27286ab0b0abe3a6af8e515a1871b9b0c87ff6fbafa882c#npm:4.4.1"],\
-          ["socks", "npm:2.8.4"]\
+          ["socks", "npm:2.8.5"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -11470,7 +11498,7 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../Users/mguib/AppData/Local/Yarn/Berry/cache/tinyglobby-npm-0.2.14-d4e4bcf80e-10c0.zip/node_modules/tinyglobby/",\
         "packageDependencies": [\
           ["tinyglobby", "npm:0.2.14"],\
-          ["fdir", "virtual:d4e4bcf80e67f9de0540c123c7c4882e34dce6a8ba807a0a834f267f9132ee6bd264e69a49c6203aa89877ed3a5a5d633bfa002384881be452cc3a2d2fbcce0b#npm:6.4.5"],\
+          ["fdir", "virtual:d4e4bcf80e67f9de0540c123c7c4882e34dce6a8ba807a0a834f267f9132ee6bd264e69a49c6203aa89877ed3a5a5d633bfa002384881be452cc3a2d2fbcce0b#npm:6.4.6"],\
           ["picomatch", "npm:4.0.2"]\
         ],\
         "linkType": "HARD"\

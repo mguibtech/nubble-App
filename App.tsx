@@ -8,8 +8,13 @@ function App(): React.JSX.Element {
 
   return (
     <SafeAreaView>
-      <Text preset='headingLarge'>Testando app</Text>
-      <Text preset='headingLarge' style={{ fontFamily: 'Telma-Bold' }}>Testando app</Text>
+      <Text bold>Testando app</Text>
+      <Text italic>Testando app</Text>
+      <Text semibold>Testando app</Text>
+      <Text bold italic>Testando app</Text>
+      <Text bold semibold>Testando app</Text>
+      <Text italic semibold>Testando app</Text>
+      <Text italic semibold>Testando app</Text>
 
     </SafeAreaView>
   );

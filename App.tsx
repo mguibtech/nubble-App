@@ -16,11 +16,8 @@ function App(): React.JSX.Element {
         <View style={{ padding: 24 }}>
 
           <Text bold preset='headingLarge' italic>mGuibTech</Text>
-          <Text italic>Testando app</Text>
-          <Button title='Testando app' />
+          <Button title='Testando app' mb='s20' backgroundColor='error' />
           <Button loading title='Testando app' />
-
-
         </View>
       </SafeAreaView>
     </ThemeProvider>

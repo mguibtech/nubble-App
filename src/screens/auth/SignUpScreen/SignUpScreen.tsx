@@ -11,6 +11,21 @@ type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function SignUpScreen({ navigation }: ScreenProps) {
+
+    function handleSignUp() {
+        // Implement sign-up logic here
+        console.log("Sign up button pressed");
+        // Navigate to success screen after sign-up
+        navigation.navigate('SuccessScreen', {
+            title: 'Conta criada com sucesso!',
+            description: 'Você já pode fazer login na sua conta.',
+            icon: {
+                name: 'checkRound',
+                color: 'primary',
+            },
+        });
+    }
+
     return (
         <Screen canGoBack scrollable>
             <Text preset="headingLarge" mb="s32">
@@ -25,7 +40,7 @@ export function SignUpScreen({ navigation }: ScreenProps) {
             />
             <PasswordInput label="Nova senha" placeholder="Digite sua Senha" />
 
-            <Button preset="primary" title="Criar conta" mt="s56" />
+            <Button onPress={handleSignUp} preset="primary" title="Criar conta" mt="s56" />
         </Screen>
     )
 }

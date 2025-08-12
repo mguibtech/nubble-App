@@ -29,19 +29,22 @@ import { TrashIcon } from '../../assets/icons/TrashIcon';
 import { useAppTheme } from '../../hooks/useAppTheme';
 import { ThemeColors } from '../../theme/theme';
 import { Pressable } from 'react-native';
+import { ErrorRoundIcon } from '../../assets/icons/ErrorRoundIcon';
+import { CheckRoundIcon } from '../../assets/icons/CheckRoundIcon';
+import { MessageRoundIcon } from '../../assets/icons/MessageRoundIcon';
 
 export interface IconBase {
     size?: number;
     color?: string;
 }
 
-interface Props {
+export interface IconProps {
     name: IconName;
     color?: ThemeColors;
     size?: number;
     onPress?: () => void;
 }
-export function Icon({ name, color = 'backgroundContrast', size, onPress }: Props) {
+export function Icon({ name, color = 'backgroundContrast', size, onPress }: IconProps) {
     const { colors } = useAppTheme();
     const SVGIcon = iconRegistry[name];
 
@@ -84,6 +87,9 @@ const iconRegistry = {
     search: SearchIcon,
     settings: SettingsIcon,
     trash: TrashIcon,
+    errorRound: ErrorRoundIcon,
+    checkRound: CheckRoundIcon,
+    messageRound: MessageRoundIcon,
 };
 
 type IconType = typeof iconRegistry;

@@ -14,6 +14,11 @@ export function LoginScreen({ navigation }: ScreenProps) {
     function navigateToSignUp() {
         navigation.navigate('SignUpScreen');
     }
+
+    function navigateToForgotPassword() {
+        navigation.navigate('ForgotPasswordScreen');
+    }
+
     return (
         <Screen>
             <Text bold preset='headingLarge' italic>Olá</Text>
@@ -25,7 +30,7 @@ export function LoginScreen({ navigation }: ScreenProps) {
 
             </Box>
 
-            <Text bold preset='paragraphCaption' color="primary" mt="s4" italic>Esqueci minha senha</Text>
+            <Text onPress={navigateToForgotPassword} bold preset='paragraphCaption' color="primary" mt="s4" italic>Esqueci minha senha</Text>
 
             <Button title="Entrar" mt="s40" onPress={navigateToSignUp} />
             <Button title="Criar uma conta" preset="outline" mt="s10" />

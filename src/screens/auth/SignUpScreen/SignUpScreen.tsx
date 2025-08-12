@@ -15,6 +15,7 @@ export function SignUpScreen({ navigation }: ScreenProps) {
 
     const { reset } = useResetNavigationSuccess();
 
+
     function handleSignUp() {
         reset({
             title: 'Conta criada com sucesso!',

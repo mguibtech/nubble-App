@@ -3,18 +3,17 @@ import { TextInput } from "../../../components/TextInput/TextInput";
 import { Button } from "../../../components/Button/Button";
 import { Box } from "../../../components/Box/Box";
 import { Screen } from "../../../components/screen/Screen";
+import { PasswordInput } from "../../../components/PasswordInput/PasswordInput";
 
 export function LoginScreen() {
     return (
         <Screen>
-
-
             <Text bold preset='headingLarge' italic>Olá</Text>
             <Text bold preset='paragraphLarge' italic>Digite seu e-mail e senha para entrar</Text>
 
             <Box gap="s16" mt="s20">
                 <TextInput label="E-mail" placeholder="Digite seu e-mail" />
-                <TextInput label="Senha" placeholder="Digite sua senha" secureTextEntry />
+                <PasswordInput label="Senha" placeholder="Digite sua senha" />
 
             </Box>
 

@@ -1,10 +1,16 @@
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { Button } from "../../../components/Button/Button";
 import { PasswordInput } from "../../../components/PasswordInput/PasswordInput";
 import { Screen } from "../../../components/screen/Screen";
 import { Text } from "../../../components/Text/Text";
 import { TextInput } from "../../../components/TextInput/TextInput";
+import { RootStackParamList } from "../../../routes/Routes";
 
-export function SignUpScreen() {
+type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
+
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function SignUpScreen({ navigation }: ScreenProps) {
     return (
         <Screen canGoBack scrollable>
             <Text preset="headingLarge" mb="s32">

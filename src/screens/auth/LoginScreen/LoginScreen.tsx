@@ -1,24 +1,23 @@
 import { Text } from "../../../components/Text/Text";
-import { TextInput } from "../../../components/TextInput/TextInput";
 import { Button } from "../../../components/Button/Button";
-import { Box } from "../../../components/Box/Box";
 import { Screen } from "../../../components/screen/Screen";
-import { PasswordInput } from "../../../components/PasswordInput/PasswordInput";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../../routes/Routes";
-import { useForm, Controller } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Alert } from "react-native";
+import { loginSchema, LoginSchema } from "./loginSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { FormTextInput } from "../../../components/Form/FormTextInput";
+import { FormPasswordInput } from "../../../components/Form/FormPasswordInput";
 
-type LoginFormType = {
-    email: string;
-    password: string;
-}
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
 
 export function LoginScreen({ navigation }: ScreenProps) {
 
-    const { handleSubmit, control, formState } = useForm<LoginFormType>({
+
+    const { handleSubmit, control, formState } = useForm<LoginSchema>({
+        resolver: zodResolver(loginSchema),
         defaultValues: {
             email: '',
             password: '',
@@ -27,7 +26,7 @@ export function LoginScreen({ navigation }: ScreenProps) {
     });
 
 
-    function submitForm({ email, password }: LoginFormType) {
+    function submitForm({ email, password }: LoginSchema) {
         Alert.alert("Login", "Formulário enviado com sucesso!" + ' E-mail: ' + email + ', Senha: ' + password);
     }
 
@@ -40,43 +39,21 @@ export function LoginScreen({ navigation }: ScreenProps) {
             <Text bold preset='headingLarge' italic>Olá</Text>
             <Text bold preset='paragraphLarge' italic>Digite seu e-mail e senha para entrar</Text>
 
-            <Box gap="s16" mt="s20">
-                <Controller
-                    control={control}
-                    name="email"
-                    rules={{
-                        required: 'E-mail é obrigatório',
-                    }}
-                    render={({ field, fieldState }) => (
-                        <TextInput
-                            errorMessage={fieldState.error?.message}
-                            value={field.value}
-                            onChangeText={field.onChange}
-                            label="E-mail"
-                            placeholder="Digite seu e-mail"
-                        />
-                    )}
-                />
+            <FormTextInput
+                control={control}
+                name="email"
+                label="E-mail"
+                placeholder="Digite seu e-mail"
+                boxProps={{ mb: 's20', mt: 's40' }}
+            />
 
-                <Controller
-                    control={control}
-                    name="password"
-                    rules={{
-                        required: 'Senha é obrigatória',
-                        minLength: { value: 6, message: 'A senha deve ter pelo menos 6 caracteres' },
-                    }}
-                    render={({ field, fieldState }) => (
-                        <PasswordInput
-                            value={field.value}
-                            onChangeText={field.onChange}
-                            errorMessage={fieldState.error?.message}
-                            label="Senha"
-                            placeholder="Digite sua senha" />
-                    )
-                    }
-                />
-
-            </Box>
+            <FormPasswordInput
+                control={control}
+                name="password"
+                label="Senha"
+                placeholder="Digite sua senha"
+                boxProps={{ mb: 's20' }}
+            />
 
             <Text onPress={navigateToForgotPassword} bold preset='paragraphCaption' color="primary" mt="s4" italic>Esqueci minha senha</Text>
 

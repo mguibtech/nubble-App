@@ -86,7 +86,12 @@ export function LoginScreen({ navigation }: ScreenProps) {
                 mt="s40"
                 disabled={formState.isSubmitting || !formState.isValid}
             />
-            <Button title="Criar uma conta" preset="outline" mt="s10" />
+            <Button
+                onPress={() => navigation.navigate('SignUpScreen')}
+                title="Criar uma conta"
+                preset="outline"
+                mt="s10"
+            />
 
         </Screen>
     );

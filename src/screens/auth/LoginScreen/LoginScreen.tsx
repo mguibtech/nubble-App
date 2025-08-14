@@ -35,7 +35,7 @@ export function LoginScreen({ navigation }: ScreenProps) {
     return (
         <Screen>
             <Text bold preset='headingLarge' italic>Olá</Text>
-            <Text bold preset='paragraphLarge' italic>Digite seu e-mail e senha para entrar</Text>
+            <Text preset='paragraphLarge' mt="s8">Digite seu e-mail e senha para entrar</Text>
 
             <FormTextInput
                 control={control}
@@ -50,9 +50,7 @@ export function LoginScreen({ navigation }: ScreenProps) {
                 name="password"
                 label="Senha"
                 placeholder="Digite sua senha"
-                boxProps={{ mb: 's20' }}
             />
-
             <Text onPress={navigateToForgotPassword} bold preset='paragraphCaption' color="primary" mt="s4" italic>Esqueci minha senha</Text>
 
             <Button

@@ -1,20 +1,17 @@
 import { Alert } from 'react-native';
 
 import { zodResolver } from '@hookform/resolvers/zod';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useForm } from 'react-hook-form';
 
 import { Button, FormPasswordInput, FormTextInput, Screen, Text } from '@components';
 import { useResetNavigationSuccess } from '@hooks';
-import { RootStackParamList } from '@routes';
+import { AuthScreenProps } from '@routes';
 
 import { signUpSchema, SignUpSchema } from './signUpSchema';
 
-type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
-
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function SignUpScreen({ navigation }: ScreenProps) {
+export function SignUpScreen({ navigation }: AuthScreenProps<'SignUpScreen'>) {
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { reset } = useResetNavigationSuccess();

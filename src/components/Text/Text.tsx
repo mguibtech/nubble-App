@@ -1,6 +1,8 @@
 import React from 'react';
 import { TextStyle } from 'react-native';
+
 import { createText } from '@shopify/restyle';
+
 import { Theme } from '../../theme/theme';
 
 const SRText = createText<Theme>();
@@ -17,9 +19,9 @@ export function Text({ children, preset = 'paragraphMedium', style, bold, italic
     const fontFamily = getFontFamily(preset, bold, italic, semibold);
 
     return (
-        <SRText color='backgroundContrast' style={[$fontSizes[preset], { fontFamily }, style]} {...sRTextProps}>{children}
+        <SRText color="backgroundContrast" style={[$fontSizes[preset], { fontFamily }, style]} {...sRTextProps}>{children}
         </SRText>
-    )
+    );
 }
 
 function getFontFamily(preset: TextVariants, bold?: boolean, italic?: boolean, semibold?: boolean) {
@@ -64,7 +66,7 @@ export const $fontSizes: Record<TextVariants, TextStyle> = {
 
     paragraphCaption: { fontSize: 12, lineHeight: 16.8 },
     paragraphCaptionSmall: { fontSize: 10, lineHeight: 14 },
-}
+};
 
 export const $fontFamily = {
     black: 'Satoshi-Black',
@@ -77,4 +79,4 @@ export const $fontFamily = {
     medium: 'Satoshi-Medium',
     mediumItalic: 'Satoshi-MediumItalic',
     regular: 'Satoshi-Regular',
-}
+};

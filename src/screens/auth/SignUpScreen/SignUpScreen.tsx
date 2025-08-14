@@ -1,12 +1,14 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { useForm } from "react-hook-form";
-import { Alert } from "react-native";
-import { signUpSchema, SignUpSchema } from "./signUpSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { RootStackParamList } from "@routes";
-import { useResetNavigationSuccess } from "@hooks";
-import { Button, FormPasswordInput, FormTextInput, Screen, Text } from "@components";
+import { Alert } from 'react-native';
 
+import { zodResolver } from '@hookform/resolvers/zod';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useForm } from 'react-hook-form';
+
+import { Button, FormPasswordInput, FormTextInput, Screen, Text } from '@components';
+import { useResetNavigationSuccess } from '@hooks';
+import { RootStackParamList } from '@routes';
+
+import { signUpSchema, SignUpSchema } from './signUpSchema';
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'SignUpScreen'>;
 
@@ -41,7 +43,7 @@ export function SignUpScreen({ navigation }: ScreenProps) {
         //     },
         // });
 
-        Alert.alert("Sign Up", "Formulário enviado com sucesso!" +
+        Alert.alert('Sign Up', 'Formulário enviado com sucesso!' +
             ' Username: ' + username + ', Nome: ' + fullName + ', E-mail: ' + email + ', Senha: ' + password);
     }
 
@@ -92,5 +94,5 @@ export function SignUpScreen({ navigation }: ScreenProps) {
                 disabled={!formState.isValid}
             />
         </Screen>
-    )
+    );
 }

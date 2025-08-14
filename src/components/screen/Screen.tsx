@@ -1,9 +1,12 @@
 import React from 'react';
 import { KeyboardAvoidingView, Platform } from 'react-native';
-import { ScrollViewContainer, ViewContainer } from './components/ScreenContainer';
+
 import { useNavigation } from '@react-navigation/native';
-import { useAppSafeArea, useAppTheme } from '@hooks';
+
 import { Box, Icon, Text, TouchableOpacityBox } from '@components';
+import { useAppSafeArea, useAppTheme } from '@hooks';
+
+import { ScrollViewContainer, ViewContainer } from './components/ScreenContainer';
 
 interface ScreenProps {
     children: React.ReactNode;
@@ -19,7 +22,7 @@ export function Screen({
     const { bottom, top } = useAppSafeArea();
     const { colors } = useAppTheme();
 
-    const navigation = useNavigation()
+    const navigation = useNavigation();
 
     console.log({
         device: Platform.OS,

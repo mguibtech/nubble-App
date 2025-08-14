@@ -1,12 +1,13 @@
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-import { RootStackParamList } from "../../../routes/Routes";
-import { useForm } from "react-hook-form";
-import { Alert } from "react-native";
-import { loginSchema, LoginSchema } from "./loginSchema";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { FormTextInput } from "../../../components/Form/FormTextInput";
-import { FormPasswordInput } from "../../../components/Form/FormPasswordInput";
-import { Button, Screen, Text } from "@components";
+import { Alert } from 'react-native';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useForm } from 'react-hook-form';
+
+import { Button, FormPasswordInput, FormTextInput, Screen, Text } from '@components';
+import { RootStackParamList } from '@routes';
+
+import { loginSchema, LoginSchema } from './loginSchema';
 
 
 type ScreenProps = NativeStackScreenProps<RootStackParamList, 'LoginScreen'>;
@@ -25,7 +26,7 @@ export function LoginScreen({ navigation }: ScreenProps) {
 
 
     function submitForm({ email, password }: LoginSchema) {
-        Alert.alert("Login", "Formulário enviado com sucesso!" + ' E-mail: ' + email + ', Senha: ' + password);
+        Alert.alert('Login', 'Formulário enviado com sucesso!' + ' E-mail: ' + email + ', Senha: ' + password);
     }
 
     function navigateToForgotPassword() {
@@ -34,8 +35,8 @@ export function LoginScreen({ navigation }: ScreenProps) {
 
     return (
         <Screen>
-            <Text bold preset='headingLarge' italic>Olá</Text>
-            <Text preset='paragraphLarge' mt="s8">Digite seu e-mail e senha para entrar</Text>
+            <Text bold preset="headingLarge" italic>Olá</Text>
+            <Text preset="paragraphLarge" mt="s8">Digite seu e-mail e senha para entrar</Text>
 
             <FormTextInput
                 control={control}
@@ -51,7 +52,7 @@ export function LoginScreen({ navigation }: ScreenProps) {
                 label="Senha"
                 placeholder="Digite sua senha"
             />
-            <Text onPress={navigateToForgotPassword} bold preset='paragraphCaption' color="primary" mt="s4" italic>Esqueci minha senha</Text>
+            <Text onPress={navigateToForgotPassword} bold preset="paragraphCaption" color="primary" mt="s4" italic>Esqueci minha senha</Text>
 
             <Button
                 onPress={handleSubmit(submitForm)}

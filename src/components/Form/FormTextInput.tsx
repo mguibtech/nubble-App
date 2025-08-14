@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import { Controller, UseControllerProps, FieldValues } from "react-hook-form";
+import { Controller, UseControllerProps, FieldValues } from 'react-hook-form';
 
 
-import { TextInput, TextInputPros } from "../TextInput/TextInput";
+import { TextInput, TextInputPros } from '../TextInput/TextInput';
 
 
 export function FormTextInput<FormType extends FieldValues>({
@@ -27,5 +27,5 @@ export function FormTextInput<FormType extends FieldValues>({
                 />
             )}
         />
-    )
+    );
 }

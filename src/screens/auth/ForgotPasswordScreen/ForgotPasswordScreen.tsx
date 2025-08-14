@@ -1,12 +1,16 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
-import { useForm } from 'react-hook-form';
-import { forgotPasswordSchema, ForgotPasswordSchema } from './forgotPasswordSchema';
-import { zodResolver } from '@hookform/resolvers/zod';
 import { Alert } from 'react-native';
-import { RootStackParamList } from '@routes';
-import { useResetNavigationSuccess } from '@hooks';
+
+import { zodResolver } from '@hookform/resolvers/zod';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { useForm } from 'react-hook-form';
+
 import { Button, FormTextInput, Screen, Text } from '@components';
+import { useResetNavigationSuccess } from '@hooks';
+import { RootStackParamList } from '@routes';
+
+import { forgotPasswordSchema, ForgotPasswordSchema } from './forgotPasswordSchema';
+
 
 type ScreenProps = NativeStackScreenProps<
     RootStackParamList,
@@ -24,7 +28,7 @@ export function ForgotPasswordScreen({ navigation }: ScreenProps) {
             email: '',
         },
         mode: 'onChange',
-    })
+    });
 
     function submitForm({ email }: ForgotPasswordSchema) {
         // TODO: submit form
@@ -40,7 +44,7 @@ export function ForgotPasswordScreen({ navigation }: ScreenProps) {
 
         // })
 
-        Alert.alert("Recuperação de Senha", "Instruções enviadas para o e-mail: " + email);
+        Alert.alert('Recuperação de Senha', 'Instruções enviadas para o e-mail: ' + email);
     }
 
 

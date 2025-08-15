@@ -4,10 +4,11 @@ import { Button, Screen, Text } from '@components';
 import { AppScreenProps } from '@routes';
 
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function SettingsScreen({ navigation }: AppScreenProps<'SettingsScreen'>) {
 
     function goToGomeScreen() {
-        navigation.navigate('HomeScreen');
+        // navigation.navigate('AppTabNavigator', paranm);
     }
 
     return (

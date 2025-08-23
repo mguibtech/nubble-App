@@ -34,9 +34,9 @@ export function AppTabNavigator() {
             }}
         >
             <Tab.Screen name="HomeScreen" component={HomeScreen} />
-            <Tab.Screen name="MyProfileScreen" component={MyProfileScreen} />
-            <Tab.Screen name="FavoriteScreen" component={FavoriteScreen} />
             <Tab.Screen name="NewPostScreen" component={NewPostScreen} />
+            <Tab.Screen name="FavoriteScreen" component={FavoriteScreen} />
+            <Tab.Screen name="MyProfileScreen" component={MyProfileScreen} />
 
         </Tab.Navigator>
     );

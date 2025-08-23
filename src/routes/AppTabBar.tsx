@@ -1,26 +1,26 @@
 import React from 'react';
 
 import { BottomTabBarProps } from '@react-navigation/bottom-tabs';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import {
     Box,
     BoxProps,
     Icon,
     Text,
-    TextProps,
     TouchableOpacityBox,
     TouchableOpacityBoxProps,
+    TextProps,
 } from '@components';
-import { useAppSafeArea } from '@hooks';
 import { AppTabBottomParamList } from '@routes';
-import { $shadowProps } from '@theme';
 
 import { mapScreenToProps } from './mapScreenToProps';
 
 export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps) {
-    const { bottom } = useAppSafeArea();
+    const insets = useSafeAreaInsets();
+
     return (
-        <Box {...$boxWrapper} style={[{ paddingBottom: bottom }, $shadowProps]}>
+        <Box style={{ paddingBottom: insets.bottom }} {...$boxWrapper}>
             {state.routes.map((route, index) => {
                 const { options } = descriptors[route.key];
 
@@ -51,10 +51,11 @@ export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps)
 
                 return (
                     <TouchableOpacityBox
+                        key={index}
                         {...$itemWrapper}
-                        accessibilityRole="button"
                         accessibilityState={isFocused ? { selected: true } : {}}
                         accessibilityLabel={options.tabBarAccessibilityLabel}
+                        // testID={options.tabBarTestID}
                         onPress={onPress}
                         onLongPress={onLongPress}
                         style={{ flex: 1 }}>
@@ -73,7 +74,6 @@ export function AppTabBar({ state, descriptors, navigation }: BottomTabBarProps)
         </Box>
     );
 }
-
 
 const $label: TextProps = {
     semibold: true,

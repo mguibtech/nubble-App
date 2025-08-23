@@ -1,18 +1,18 @@
 
-
 import { Button, Screen, Text } from '@components';
-import { AppScreenProps } from '@routes';
+import { AppTabScreenProps } from '@routes';
 
 
-
-export function HomeScreen({ navigation }: AppScreenProps<'HomeScreen'>) {
+export function HomeScreen({ navigation }: AppTabScreenProps<'HomeScreen'>) {
 
     function gotoSettingsScreen() {
-        navigation.navigate('SettingsScreen');
+        navigation.navigate('NewPostScreen');
     }
+
     return (
         <Screen>
             <Text preset="headingLarge">tela de home</Text>
+            <Button onPress={gotoSettingsScreen} title="Title Button" />
             <Button onPress={gotoSettingsScreen} title="Title Button" />
         </Screen>
     );

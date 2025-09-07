@@ -7,16 +7,16 @@ import { Box } from '@components';
 import { PostHeader } from './components/PostHeader';
 import { PostImage } from './components/PostImage';
 
-export interface PostItemProps {
+interface Props {
     post: Post
 }
 
-export function PostItem({ post }: PostItemProps) {
+export function PostItem({ post }: Props) {
     return (
 
         <Box mb="s24">
-            <PostHeader post={post} />
-            <PostImage post={post} />
+            <PostHeader author={post.author} />
+            <PostImage imageURL={post.imageURL} />
         </Box>
     );
 }

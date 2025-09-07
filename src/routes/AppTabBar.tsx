@@ -13,6 +13,7 @@ import {
     TextProps,
 } from '@components';
 import { AppTabBottomParamList } from '@routes';
+import { $shadowProps } from '@theme';
 
 import { mapScreenToProps } from './mapScreenToProps';
 
@@ -91,4 +92,8 @@ const $boxWrapper: BoxProps = {
     paddingTop: 's12',
     backgroundColor: 'background',
     flexDirection: 'row',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: $shadowProps.shadowOpacity,
+    shadowRadius: $shadowProps.shadowRadius,
+    elevation: $shadowProps.elevation,
 };

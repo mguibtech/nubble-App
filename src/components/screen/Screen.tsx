@@ -34,7 +34,7 @@ export function Screen({
         <KeyboardAvoidingView
             style={{ flex: 1 }}
             behavior={Platform.OS === 'ios' ? 'padding' : undefined}>
-            <Container backgroundColor={colors.background}>
+            <Container backgroundColor={colors.gray5}>
                 <Box
                     paddingBottom="s24"
                     paddingHorizontal="s24"

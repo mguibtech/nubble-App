@@ -1,12 +1,16 @@
 import { Image } from 'react-native';
 
-import { Box, PostItemProps, Text } from '@components';
+import { Post } from '@domain';
 
-export function PostHeader({ post }: PostItemProps) {
+import { Box, Text } from '@components';
+
+type Props = Pick<Post, 'author'>;
+
+export function PostHeader({ author }: Props) {
     return (
         <Box flexDirection="row" alignItems="center" mb="s16">
-            <Image source={{ uri: post.author.profileURL }} style={{ width: 32, height: 32, borderRadius: 14 }} />
-            <Text ml="s12" preset="paragraphCaption" bold>{post.author.userName}</Text>
+            <Image source={{ uri: author.profileURL }} style={{ width: 32, height: 32, borderRadius: 14 }} />
+            <Text ml="s12" preset="paragraphCaption" bold>{author.userName}</Text>
         </Box>
     );
 }

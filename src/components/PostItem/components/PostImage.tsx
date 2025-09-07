@@ -1,10 +1,12 @@
 import { Dimensions, Image } from 'react-native';
 
-import { PostItemProps } from '../PostItem';
+import { Post } from '@domain';
 
-export function PostImage({ post }: PostItemProps) {
+
+type Props = Pick<Post, 'imageURL'>;
+export function PostImage({ imageURL }: Props) {
     return (
-        <Image source={{ uri: post.author.profileURL }} style={{ width: Dimensions.get('screen').width, height: 200 }} resizeMode="cover" />
+        <Image source={{ uri: imageURL }} style={{ width: Dimensions.get('screen').width, height: 200 }} resizeMode="cover" />
 
     );
 }

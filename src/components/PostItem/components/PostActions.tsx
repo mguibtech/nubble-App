@@ -45,7 +45,9 @@ function Item({ onPress, icon, marked, text }: ItemProps) {
     return (
         <TouchableOpacityBox flexDirection="row" alignItems="center" onPress={onPress} mr="s24">
             <Icon color={marked ? 'marked' : undefined} size={20} name={marked ? icon.marked : icon.default} />
-            <Text ml="s4" bold preset="paragraphSmall">{text}</Text>
+            {text > 0 && (
+                <Text ml="s4" bold preset="paragraphSmall">{text}</Text>
+            )}
         </TouchableOpacityBox>
     );
 }

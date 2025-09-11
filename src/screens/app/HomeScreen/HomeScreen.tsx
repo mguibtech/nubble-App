@@ -1,8 +1,7 @@
 
-import { useEffect, useState } from 'react';
 import { FlatList, ListRenderItemInfo, StyleProp, ViewStyle } from 'react-native';
 
-import { Post, postService } from '@domain';
+import { Post, usePostList } from '@domain';
 
 import { PostItem, Screen } from '@components';
 import { AppTabScreenProps } from '@routes';
@@ -14,26 +13,7 @@ import { HomeHeader } from './components/HomeHeader';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function HomeScreen({ navigation }: AppTabScreenProps<'HomeScreen'>) {
 
-    const [postList, setPostList] = useState<Post[]>();
-    const [loading, setLoading] = useState(false);
-    const [errorMessage, setErrorMessage] = useState<boolean | null>(null);
-
-    async function fetchData() {
-        try {
-            setLoading(true);
-            const list = await postService.getPost();
-            setPostList(list);
-        } catch (error) {
-            setErrorMessage(true);
-            console.log('Error fetching posts', error);
-        } finally {
-            setLoading(false);
-        }
-    }
-
-    useEffect(() => {
-        fetchData();
-    }, []);
+    const { errorMessage, loading, postList, refetch } = usePostList();
 
     function renderItem({ item }: ListRenderItemInfo<Post>) {
         return (
@@ -51,7 +31,7 @@ export function HomeScreen({ navigation }: AppTabScreenProps<'HomeScreen'>) {
                 renderItem={renderItem}
                 contentContainerStyle={{ flex: postList?.length === 0 ? 1 : undefined }}
                 ListHeaderComponent={<HomeHeader />}
-                ListEmptyComponent={<HomeEmpty refetch={fetchData} loading={loading} error={errorMessage} />}
+                ListEmptyComponent={<HomeEmpty refetch={refetch} loading={loading} error={errorMessage} />}
             />
         </Screen>
     );

@@ -13,7 +13,7 @@ import { HomeHeader } from './components/HomeHeader';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export function HomeScreen({ navigation }: AppTabScreenProps<'HomeScreen'>) {
 
-    const { errorMessage, loading, postList, refetch } = usePostList();
+    const { errorMessage, loading, postList, refetch, fetchNextPage } = usePostList();
 
     function renderItem({ item }: ListRenderItemInfo<Post>) {
         return (
@@ -28,8 +28,10 @@ export function HomeScreen({ navigation }: AppTabScreenProps<'HomeScreen'>) {
                 showsVerticalScrollIndicator={false}
                 data={postList}
                 keyExtractor={(item) => item.id}
+                onEndReached={fetchNextPage}
+                onEndReachedThreshold={0.5}
                 renderItem={renderItem}
-                contentContainerStyle={{ flex: postList?.length === 0 ? 1 : undefined }}
+                contentContainerStyle={{ flex: postList?.length === 0 ? 1 : 0 }}
                 ListHeaderComponent={<HomeHeader />}
                 ListEmptyComponent={<HomeEmpty refetch={refetch} loading={loading} error={errorMessage} />}
             />

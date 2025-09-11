@@ -24,7 +24,7 @@ export function HomeEmpty({ loading, error, refetch }: Props) {
         component = (
             <>
                 <Text bold>Não foi possível carregar lista de Posts</Text>
-                <Button preset="outline" mt="s12" onPress={refetch} title="Recarrrrrrregar" />
+                <Button preset="outline" mt="s12" onPress={refetch} title="Recarregar" />
             </>
         );
     }

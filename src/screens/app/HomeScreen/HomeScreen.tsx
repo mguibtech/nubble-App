@@ -7,6 +7,7 @@ import { Post, postService } from '@domain';
 import { PostItem, Screen } from '@components';
 import { AppTabScreenProps } from '@routes';
 
+import { HomeEmpty } from './components/HomeEmpty';
 import { HomeHeader } from './components/HomeHeader';
 
 
@@ -14,10 +15,24 @@ import { HomeHeader } from './components/HomeHeader';
 export function HomeScreen({ navigation }: AppTabScreenProps<'HomeScreen'>) {
 
     const [postList, setPostList] = useState<Post[]>();
-    console.log('postList', postList);
+    const [loading, setLoading] = useState(false);
+    const [errorMessage, setErrorMessage] = useState<boolean | null>(null);
+
+    async function fetchData() {
+        try {
+            setLoading(true);
+            const list = await postService.getPost();
+            setPostList(list);
+        } catch (error) {
+            setErrorMessage(true);
+            console.log('Error fetching posts', error);
+        } finally {
+            setLoading(false);
+        }
+    }
 
     useEffect(() => {
-        postService.getPost().then(list => setPostList(list));
+        fetchData();
     }, []);
 
     function renderItem({ item }: ListRenderItemInfo<Post>) {
@@ -34,7 +49,9 @@ export function HomeScreen({ navigation }: AppTabScreenProps<'HomeScreen'>) {
                 data={postList}
                 keyExtractor={(item) => item.id}
                 renderItem={renderItem}
+                contentContainerStyle={{ flex: postList?.length === 0 ? 1 : undefined }}
                 ListHeaderComponent={<HomeHeader />}
+                ListEmptyComponent={<HomeEmpty refetch={fetchData} loading={loading} error={errorMessage} />}
             />
         </Screen>
     );
@@ -44,4 +61,5 @@ const $screen: StyleProp<ViewStyle> = {
     paddingBottom: 0,
     paddingHorizontal: 0,
     paddingTop: 0,
+    flex: 1,
 };

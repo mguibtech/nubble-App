@@ -1,6 +1,3 @@
-if (__DEV__) {
-  require('./ReactotronConfig');
-}
 import React from 'react';
 
 import { ThemeProvider } from '@shopify/restyle';

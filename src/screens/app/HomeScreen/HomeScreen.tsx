@@ -14,6 +14,7 @@ import { HomeHeader } from './components/HomeHeader';
 export function HomeScreen({ navigation }: AppTabScreenProps<'HomeScreen'>) {
 
     const [postList, setPostList] = useState<Post[]>();
+    console.log('postList', postList);
 
     useEffect(() => {
         postService.getPost().then(list => setPostList(list));

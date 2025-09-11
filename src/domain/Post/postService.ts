@@ -1,9 +1,11 @@
+import {postAdapter} from './postAdapter';
 import {postAPI} from './postAPI';
-import {Post} from './types';
+import {Post} from './postType';
 
 async function getPost(): Promise<Post[]> {
-  const postList = await postAPI.getList();
-  return postList;
+  const postPageAPI = await postAPI.getList();
+
+  return postPageAPI.data.map(postAdapter.toPost);
 }
 
 export const postService = {

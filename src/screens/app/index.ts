@@ -4,3 +4,4 @@ export * from './FavoriteScreen/FavoriteScreen';
 export * from './NewPostScreen/NewPostScreen';
 export * from './MyProfileScreen/MyProfileScreen.tsx';
 export * from './FavoriteScreen/FavoriteScreen';
+export * from './PostCommentScreen/PostCommentScreen.tsx';

@@ -1,4 +1,4 @@
-import {usePaginatedList} from 'src/domain/hooks';
+import {usePaginatedList} from '@domain';
 
 import {postCommentService} from '../postCommentService';
 

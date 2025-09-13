@@ -7,11 +7,11 @@ interface Props {
 }
 export function PostCommentItem({ postComment }: Props) {
     return (
-        <Box flexDirection="row" alignItems="center" gap="s12" mb="s16">
+        <Box flexDirection="row" alignItems="center" mb="s16">
             <ProfileAvatar imageURL={postComment.author.profileUrl} />
-            <Box>
+            <Box ml="s12" flex={1}>
                 <Text preset="paragraphSmall" bold>{postComment.author.username}</Text>
-                <Text preset="paragraphSmall" color="gray1">{postComment.message}</Text>
+                <Text preset="paragraphSmall" color="gray1">{postComment.message} - {postComment.createdAtRelative}</Text>
             </Box>
         </Box>
     );

@@ -28,7 +28,7 @@ export function PostCommentScreen({ route }: AppScreenProps<'PostCommentScreen'>
                 showsVerticalScrollIndicator={false}
                 data={postList}
                 renderItem={RenderItem}
-                contentContainerStyle={{ paddingInline: bottom }}
+                contentContainerStyle={{ paddingBottom: bottom }}
                 ListFooterComponent={<PostCommentBottom fetchNextPage={fetchNextPage} hasNextPage={hasNextPage} />}
             />
         </Screen>

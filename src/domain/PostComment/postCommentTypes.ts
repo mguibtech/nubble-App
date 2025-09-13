@@ -28,4 +28,5 @@ export interface PostComment {
     username: string;
   };
   created_at: string;
+  createdAtRelative: string;
 }

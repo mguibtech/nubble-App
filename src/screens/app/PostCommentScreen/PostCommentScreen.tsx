@@ -4,8 +4,10 @@ import { FlatList, ListRenderItemInfo } from 'react-native';
 import { PostComment, usePostCommentList } from '@domain';
 
 import { Screen } from '@components';
+import { useAppSafeArea } from '@hooks';
 import { AppScreenProps } from '@routes';
 
+import { PostCommentBottom } from './components/PostCommentBottom';
 import { PostCommentItem } from './components/PostCommentItem';
 
 
@@ -15,15 +17,19 @@ function RenderItem({ item }: ListRenderItemInfo<PostComment>) {
 
 export function PostCommentScreen({ route }: AppScreenProps<'PostCommentScreen'>) {
     const id = route.params.postId;
+    const { bottom } = useAppSafeArea();
 
-    const { postList } = usePostCommentList(id);
+    const { postList, fetchNextPage, hasNextPage } = usePostCommentList(id);
     console.log(postList);
 
     return (
         <Screen canGoBack title="Comentários">
             <FlatList
+                showsVerticalScrollIndicator={false}
                 data={postList}
                 renderItem={RenderItem}
+                contentContainerStyle={{ paddingInline: bottom }}
+                ListFooterComponent={<PostCommentBottom fetchNextPage={fetchNextPage} hasNextPage={hasNextPage} />}
             />
         </Screen>
     );

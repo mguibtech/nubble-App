@@ -7,7 +7,6 @@ import {
 } from 'react-native';
 
 import { useAppTheme } from '../../hooks/useAppTheme';
-import { theme } from '../../theme/theme';
 import { Box, BoxProps } from '../Box/Box';
 import { $fontFamily, $fontSizes, Text } from '../Text/Text';
 
@@ -48,16 +47,7 @@ export function TextInput({
         backgroundColor: 'grayWhite',
     };
 
-    const $textInputStyle: TextStyle = {
-        padding: 0,
-        flexGrow: 1,
-        flexShrink: 1,
-        textAlign: rNTextInputProps.textAlign ?? 'left',
-        textAlignVertical: 'center',
-        color: theme.colors.gray1,
-        fontFamily: $fontFamily.regular,
-        ...$fontSizes.paragraphMedium,
-    };
+
 
     return (
         <Box {...boxProps}>
@@ -93,5 +83,14 @@ export function TextInput({
         </Box>
     );
 }
+
+export const $textInputStyle: TextStyle = {
+    padding: 0,
+    flexGrow: 1,
+    flexShrink: 1,
+
+    fontFamily: $fontFamily.regular,
+    ...$fontSizes.paragraphMedium,
+};
 
 

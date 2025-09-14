@@ -10,3 +10,4 @@ export * from './TextInput/TextInput';
 export * from './screen/Screen';
 export * from './PostItem/PostItem';
 export * from './ProfileAvatar/ProfileAvatar';
+export * from './TextMessage/TextMessage';

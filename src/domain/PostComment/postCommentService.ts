@@ -20,6 +20,13 @@ async function getPost(
   };
 }
 
+async function create(post_id: number, message: string) {
+  const postComment = await postCommentAPI.create(post_id, message);
+
+  return postCommentAdapter.toPostComment(postComment);
+}
+
 export const postCommentService = {
   getPost,
+  create,
 };

@@ -20,13 +20,19 @@ async function getPost(
   };
 }
 
-async function create(post_id: number, message: string) {
+async function create(post_id: number, message: string): Promise<PostComment> {
   const postComment = await postCommentAPI.create(post_id, message);
 
   return postCommentAdapter.toPostComment(postComment);
 }
 
+async function remove(posCommentId: number): Promise<string> {
+  const response = await postCommentAPI.remove(posCommentId);
+  return response.message;
+}
+
 export const postCommentService = {
   getPost,
   create,
+  remove,
 };

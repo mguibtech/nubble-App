@@ -1,3 +1,3 @@
 export * from './Post';
 export * from './PostComment';
-export * from './hooks';
+export * from '../infra';

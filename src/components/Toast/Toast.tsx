@@ -10,7 +10,7 @@ const DEFAULT_DURATION = 4000;
 
 export function Toast() {
     const toast = useToast();
-    const { hiddenToast } = useToastService();
+    const { hideToast: hiddenToast } = useToastService();
     const fadeAnim = useRef(new Animated.Value(0)).current;
 
     const runEnterAnimation = useCallback(() => {

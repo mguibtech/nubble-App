@@ -4,7 +4,7 @@ import {create} from 'zustand';
 const useToastStore = create<ToastService>(set => ({
   toast: null,
   showToast: (toast: Toast) => set({toast}),
-  hiddenToast: () => set({toast: null}),
+  hideToast: () => set({toast: null}),
 }));
 
 export function useToastZustand(): ToastService['toast'] {
@@ -13,13 +13,13 @@ export function useToastZustand(): ToastService['toast'] {
 
 export function useToastServiceZustand(): Pick<
   ToastService,
-  'showToast' | 'hiddenToast'
+  'showToast' | 'hideToast'
 > {
   const showToast = useToastStore(state => state.showToast);
-  const hiddenToast = useToastStore(state => state.hiddenToast);
+  const hiddenToast = useToastStore(state => state.hideToast);
 
   return {
     showToast,
-    hiddenToast,
+    hideToast: hiddenToast,
   };
 }

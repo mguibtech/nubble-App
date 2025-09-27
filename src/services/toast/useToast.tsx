@@ -12,7 +12,7 @@ export function useToast(): ToastService['toast'] {
   return toast;
 }
 
-export function useToastService(): Pick<ToastService, 'showToast' | 'hiddenToast'> {
+export function useToastService(): Pick<ToastService, 'showToast' | 'hideToast'> {
   // const { showToast, hiddenToast } = useToastContext();
 
   // return {

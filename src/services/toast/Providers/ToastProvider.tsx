@@ -1,11 +1,11 @@
-import { createContext, useState } from "react";
+import { createContext, useState } from 'react';
 
-import { Toast, ToastService } from "../toastTypes";
+import { Toast, ToastService } from '../toastTypes';
 
 export const ToastContext = createContext<ToastService>({
     toast: null,
     showToast: () => { },
-    hiddenToast: () => { },
+    hideToast: () => { },
 });
 
 export function ToastProvider({ children }: React.PropsWithChildren<{}>) {
@@ -15,12 +15,12 @@ export function ToastProvider({ children }: React.PropsWithChildren<{}>) {
         setToast(_toast);
     }
 
-    function hiddenToast() {
+    function hideToast() {
         setToast(null);
     }
 
     return (
-        <ToastContext.Provider value={{ toast, showToast, hiddenToast }}>
+        <ToastContext.Provider value={{ toast, showToast, hideToast: hideToast }}>
             {children}
         </ToastContext.Provider>
     );

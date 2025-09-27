@@ -1,6 +1,7 @@
 import { Alert, Pressable } from 'react-native';
 
 import { PostComment, postCommentService, usePostCommentRemove } from '@domain';
+import { useToastService } from '@services';
 
 import { Box, ProfileAvatar, Text } from '@components';
 
@@ -11,8 +12,13 @@ interface Props {
     onRemoveComment: () => void
 }
 export function PostCommentItem({ postComment, onRemoveComment, userId, postAuthorId }: Props) {
-
-    const { mutate } = usePostCommentRemove({ onSuccess: onRemoveComment });
+    const { showToast } = useToastService();
+    const { mutate } = usePostCommentRemove({
+        onSuccess: () => {
+            onRemoveComment();
+            showToast({ message: 'Comentário deletado!' });
+        },
+    });
 
     const isDelete = postCommentService.isAllowToDelete(userId, postComment, postAuthorId);
     function confirmRemove() {

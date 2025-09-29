@@ -19,12 +19,17 @@ export function PostCommentScreen({ route }: AppScreenProps<'PostCommentScreen'>
     const postAuthorId = route.params.postAuthorId;
 
     const { bottom } = useAppSafeArea();
-    const userId = useUser();
+    const { id } = useUser();
 
-    const { list, fetchNextPage, hasNextPage, refresh } = usePostCommentList(postId);
+    const { list, fetchNextPage, hasNextPage } = usePostCommentList(postId);
 
     function renderItem({ item }: ListRenderItemInfo<PostComment>) {
-        return <PostCommentItem postComment={item} onRemoveComment={refresh} postAuthorId={postAuthorId} userId={userId.id} />;
+        return <PostCommentItem
+            postId={postId}
+            postComment={item}
+            userId={id}
+            postAuthorId={postAuthorId}
+        />;
     }
     return (
         <Screen flex={1} canGoBack title="Comentários">

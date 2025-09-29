@@ -5,6 +5,14 @@ export interface MutationOptions<TData> {
   onError?: (message: string) => void;
   errorMessage?: string;
 }
+
+/**
+ * Custom hook for handling mutations.
+ * @deprecated Use React Query or another library for data fetching and mutations.
+ * @param mutationFn - The function to call for the mutation.
+ * @param options - Options for the mutation.
+ * @returns An object containing the mutate function and loading/error states.
+ */
 export function useMutation<TVariables, TData>(
   mutationFn: (variables: TVariables) => Promise<TData>,
   options?: MutationOptions<TData>,

@@ -21,7 +21,7 @@ export function PostCommentScreen({ route }: AppScreenProps<'PostCommentScreen'>
     const { bottom } = useAppSafeArea();
     const userId = useUser();
 
-    const { postList, fetchNextPage, hasNextPage, refresh } = usePostCommentList(postId);
+    const { list, fetchNextPage, hasNextPage, refresh } = usePostCommentList(postId);
 
     function renderItem({ item }: ListRenderItemInfo<PostComment>) {
         return <PostCommentItem postComment={item} onRemoveComment={refresh} postAuthorId={postAuthorId} userId={userId.id} />;
@@ -32,12 +32,12 @@ export function PostCommentScreen({ route }: AppScreenProps<'PostCommentScreen'>
 
                 <FlatList
                     showsVerticalScrollIndicator={false}
-                    data={postList}
+                    data={list}
                     renderItem={renderItem}
                     contentContainerStyle={{ paddingBottom: bottom }}
                     ListFooterComponent={<PostCommentBottom fetchNextPage={fetchNextPage} hasNextPage={hasNextPage} />}
                 />
-                <PostCommentTextMessage postId={postId} onAddComment={refresh} />
+                <PostCommentTextMessage postId={postId} />
             </Box>
 
         </Screen>

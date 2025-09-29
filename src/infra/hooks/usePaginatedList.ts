@@ -1,69 +1,46 @@
-import {useEffect, useState} from 'react';
+import {useMemo} from 'react';
 
-import {Page} from '@types';
+import {useInfiniteQuery, type QueryKey} from '@tanstack/react-query';
+import type {Page} from '@types';
 
-export function usePaginatedList<Data>(
-  getList: (page: number) => Promise<Page<Data>>,
-) {
-  const [postList, setPostList] = useState<Data[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [errorMessage, setErrorMessage] = useState<boolean | null>(null);
-  const [page, setPage] = useState(1);
-  const [hasNextPage, setHasNextPage] = useState(true);
+export interface UsePaginatedListResult<TData> {
+  queryKey: QueryKey;
+  list: TData[];
+  isError: boolean;
+  isLoading: boolean; // mapearemos para isPending (v5)
+  refresh: () => void;
+  fetchNextPage: () => void;
+  hasNextPage: boolean;
+}
 
-  async function fetchInitialData() {
-    try {
-      setErrorMessage(null);
-      setLoading(true);
-      const {data, meta} = await getList(1);
-      setPostList(data);
-      if (meta.hasNextPage) {
-        setPage(2);
-        setHasNextPage(true);
-      } else {
-        setHasNextPage(false);
-      }
-      setPage(2);
-    } catch (error) {
-      setErrorMessage(true);
-      console.log('Error fetching posts', error);
-    } finally {
-      setLoading(false);
-    }
-  }
+export function usePaginatedList<TData>(
+  queryKey: QueryKey,
+  getList: (page: number) => Promise<Page<TData>>,
+): UsePaginatedListResult<TData> {
+  const query = useInfiniteQuery({
+    queryKey,
+    initialPageParam: 1,
+    queryFn: ({pageParam}) => getList(Number(pageParam)),
+    getNextPageParam: lastPage =>
+      lastPage.meta?.hasNextPage ? lastPage.meta.currentPage + 1 : undefined,
+  });
 
-  async function fetchNextPage() {
-    if (loading || !hasNextPage) {
-      return;
-    }
-    try {
-      setLoading(true);
-      const {data, meta} = await getList(page);
-      setPostList(prev => [...prev, ...data]);
-      if (meta.hasNextPage) {
-        setPage(prev => prev + 1);
-      } else {
-        setHasNextPage(false);
-      }
-      setPage(prev => prev + 1);
-    } catch (er) {
-      setErrorMessage(true);
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  useEffect(() => {
-    fetchInitialData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  const list = useMemo(
+    () => query.data?.pages.flatMap(p => p.data) ?? [],
+    [query.data],
+  );
 
   return {
-    postList,
-    loading,
-    errorMessage,
-    refresh: fetchInitialData,
-    fetchNextPage,
-    hasNextPage,
+    queryKey,
+    list,
+    isError: !!query.isError,
+    isLoading: query.isPending, // v5: alias para "carregando inicial"
+    refresh: () => {
+      void query.refetch();
+    },
+    fetchNextPage: () => {
+      void query.fetchNextPage();
+    },
+    hasNextPage: !!query.hasNextPage,
   };
 }

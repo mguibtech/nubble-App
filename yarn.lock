@@ -2522,6 +2522,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-core@npm:4.32.6":
+  version: 4.32.6
+  resolution: "@tanstack/query-core@npm:4.32.6"
+  checksum: 10c0/601e9b3e92ba200a013bdd0c7fd43d77b56c8be14a041b2efa5f9c02cae46f541f947e47eeb03ccc83e6fd490d833e87e86e45cde8ace785b3c2b07fbcfc475f
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query@npm:4.32.6":
+  version: 4.32.6
+  resolution: "@tanstack/react-query@npm:4.32.6"
+  dependencies:
+    "@tanstack/query-core": "npm:4.32.6"
+    use-sync-external-store: "npm:^1.2.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-native: "*"
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+  checksum: 10c0/af6b656748b261f861d2e017aae3913bfb754b5fbc29a00cd940456f8630f6a92b256e6b03832e6ffcda5d34e2d88947e9848fc29dbcc728fa57fa0da4e2db46
+  languageName: node
+  linkType: hard
+
 "@types/babel__core@npm:^7.1.14":
   version: 7.20.5
   resolution: "@types/babel__core@npm:7.20.5"
@@ -2902,6 +2928,7 @@ __metadata:
     "@react-navigation/native": "npm:^7.1.17"
     "@react-navigation/native-stack": "npm:^7.3.25"
     "@shopify/restyle": "npm:^2.4.5"
+    "@tanstack/react-query": "npm:4.32.6"
     "@types/jest": "npm:^29.5.13"
     "@types/react": "npm:^19.0.0"
     "@types/react-test-renderer": "npm:^19.0.0"
@@ -9633,7 +9660,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"use-sync-external-store@npm:^1.5.0":
+"use-sync-external-store@npm:^1.2.0, use-sync-external-store@npm:^1.5.0":
   version: 1.5.0
   resolution: "use-sync-external-store@npm:1.5.0"
   peerDependencies:

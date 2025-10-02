@@ -1,6 +1,7 @@
-import { Alert } from 'react-native';
 
+import { useAuthSignIn } from '@domain';
 import { zodResolver } from '@hookform/resolvers/zod';
+import { useToastService } from '@services';
 import { useForm } from 'react-hook-form';
 
 import { Button, FormPasswordInput, FormTextInput, Screen, Text } from '@components';
@@ -12,6 +13,14 @@ import { loginSchema, LoginSchema } from './loginSchema';
 
 
 export function LoginScreen({ navigation }: AuthScreenProps<'LoginScreen'>) {
+    const { showToast } = useToastService();
+
+    const { signIn, isLoading } = useAuthSignIn(
+        {
+            onSuccess: () => { showToast({ message: 'Login realizado com sucesso!', type: 'success' }); },
+            onError: (message) => { showToast({ message, type: 'error' }); },
+        }
+    );
 
 
     const { handleSubmit, control, formState } = useForm<LoginSchema>({
@@ -25,7 +34,8 @@ export function LoginScreen({ navigation }: AuthScreenProps<'LoginScreen'>) {
 
 
     function submitForm({ email, password }: LoginSchema) {
-        Alert.alert('Login', 'Formulário enviado com sucesso!' + ' E-mail: ' + email + ', Senha: ' + password);
+        signIn({ email, password });
+        // Alert.alert('Login', 'Formulário enviado com sucesso!' + ' E-mail: ' + email + ', Senha: ' + password);
     }
 
     function navigateToForgotPassword() {
@@ -58,6 +68,7 @@ export function LoginScreen({ navigation }: AuthScreenProps<'LoginScreen'>) {
                 title="Entrar"
                 mt="s40"
                 disabled={formState.isSubmitting || !formState.isValid}
+                loading={isLoading}
             />
             <Button
                 onPress={() => navigation.navigate('SignUpScreen')}

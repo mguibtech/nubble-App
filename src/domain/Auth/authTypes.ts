@@ -1,0 +1,20 @@
+import {User, UserApi} from '../User';
+
+export interface AuthCredentials {
+  token: string;
+  user: User;
+}
+
+export interface AuthCredentialsAPI {
+  auth: {
+    type: string; //'bearer';
+    token: string; // 'NA.GCfDf81QRs0q4VxyFSEvWs8kZ-DoZnl5zKLn8UDY8ntedjZCPgxVxfFijlQy';
+  };
+  user: UserApi;
+}
+
+export interface SignInData {
+  username?: string;
+  email?: string;
+  password: string;
+}
